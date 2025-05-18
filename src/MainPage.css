@@ -5,12 +5,19 @@
     background-color: #111111;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    /* padding-left: 10px;
-    padding-right: 10px; */
-    gap: 1px;
     width: 100%;
     align-self: left;
     align-content: center;
+}
+
+.navigation-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    border-radius: 20px;
+    width: 100%;
+    gap: 5px;
 }
 
 
@@ -24,8 +31,6 @@
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
     width: 100%;
-    /* padding-left: 10px;
-    padding-right: 10px; */
 }
 
 .header-property {
@@ -36,11 +41,16 @@
     align-content: center;
 }
 
-.header-property:hover {
-    background-color: #222222;
-    cursor: pointer;
+/* Button Styles */
+
+.btn {
+  height: 6em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms;
 }
 
-
-
+.btn:hover {
+  filter: drop-shadow(0 0 2em #ffffff);
+}
 

@@ -390,9 +390,9 @@
     },
     {
         "IsFile": true,
-        "Name": "Backup.pdf",
+        "Name": "Contributing to Backup.pdf",
         "Tags": [],
-        "Size": "93.3 KB",
+        "Size": "174.18 KB",
         "Path": "",
         "Content": null
     },
@@ -400,22 +400,78 @@
         "IsFile": false,
         "Name": "Textbooks",
         "Tags": [],
-        "Size": "0 B",
+        "Size": "4.0 KB",
         "Path": "",
         "Content": [
             {
                 "IsFile": true,
-                "Name": "Textbooks-20250511T032429Z-1-001.zip",
+                "Name": "1A.zip",
                 "Tags": [],
-                "Size": "1.7 GB",
+                "Size": "193.23 MB",
                 "Path": "Textbooks",
                 "Content": null
             },
             {
                 "IsFile": true,
-                "Name": "Textbooks-20250511T032429Z-1-002.zip",
+                "Name": "1B.zip",
                 "Tags": [],
-                "Size": "314.86 MB",
+                "Size": "438.85 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "2A.zip",
+                "Tags": [],
+                "Size": "170.25 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "2B.zip",
+                "Tags": [],
+                "Size": "325.23 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "3A.zip",
+                "Tags": [],
+                "Size": "322.38 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "3B.zip",
+                "Tags": [],
+                "Size": "293.85 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "4A.zip",
+                "Tags": [],
+                "Size": "52.98 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "CSEs.zip",
+                "Tags": [],
+                "Size": "20.26 MB",
+                "Path": "Textbooks",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "Physics of Semiconductor Devices-Wiley-3rdedition.pdf",
+                "Tags": [],
+                "Size": "63.22 MB",
                 "Path": "Textbooks",
                 "Content": null
             }

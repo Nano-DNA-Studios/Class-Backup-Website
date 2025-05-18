@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Ignore Class Files
-public/HostedFiles
+public/ClassBackups
