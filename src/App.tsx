@@ -38,7 +38,10 @@ function App() {
         </p>
       </div> */}
 
-      <MainCard/>
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "100%" }}>
+        <MainCard />
+      </div>
+
 
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more

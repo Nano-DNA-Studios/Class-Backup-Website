@@ -1,0 +1,21 @@
+.folder-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 20px;
+    width: 100%;
+    gap: 5px;
+}
+
+.folder-item-property{
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-content: center;
+    text-shadow: 0px 0px 10px #000000;
+}
+
+.folder-item:hover {
+    background-color: #222222;
+    cursor: pointer;
+}

@@ -5,9 +5,11 @@
     background-color: #111111;
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 80%;
-    align-self: center;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    gap: 1px;
+    width: 100%;
+    align-self: left;
+    align-content: center;
 }
 
