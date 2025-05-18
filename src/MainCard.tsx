@@ -1,18 +1,29 @@
+import React from "react";
 import "./MainCard.css";
-import GetMainCardPropertyHeader from "./MainCardPropertyHeader";
+import FilePropertyHeader from "./FilePropertyHeader";
 
-function MainCard() {
+class MainCard extends React.Component {
 
-    return (
-        <div className="main-card">
-            {GetMainCardPropertyHeader()}
-            <h1>
-                Hello World new Website
-            </h1>
-        </div>
-    );
+    render() {
+        return (
+            <div className="main-card">
+                <FilePropertyHeader>
+                    
+                </FilePropertyHeader>
+                <h1>
+                    Hello World new Website
+                </h1>
+            </div>
+        );
+    }
+
+
+
+
+
+
+
 
 }
-
 
 export default MainCard;
