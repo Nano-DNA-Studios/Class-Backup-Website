@@ -1,48 +1,75 @@
 import React from "react";
 import "./MainCard.css";
-import FilePropertyHeader from "./FilePropertyHeader";
 import FolderItem from "./FolderItem";
+import documentLogo from './assets/document.svg';
+import classData from './assets/ClassBackups.json';
 
 class MainCard extends React.Component {
 
-    GetFolderContent()
-    {
-        let folderContent = [
-            {
-                ClassName: "Nano 101",
-                Tags: ["Nano", "101"],
-                Professor: "Dr. Smith",
-                Term: "Fall 2023",
-                Size: "1.2 GB",
-                Download: "Download Link",
-                Preview: "Preview Link"
-            },
-            {
-                ClassName: "Nano 102",
-                Tags: ["Nano", "102"],
-                Professor: "Dr. Johnson",
-                Term: "Spring 2024",
-                Size: "2.5 GB",
-                Download: "Download Link",
-                Preview: "Preview Link"
-            }
-        ];
+    state = {
+        content: classData,
+        path: "",
+    }
 
-        return folderContent.map((item, index) => (
-            <FolderItem onClick={() => { console.log("Clicked on ") }} key={index} {...item} />
+    DownloadClass(item: any) {
+        const fileName = encodeURIComponent(item.Name);
+        const link = document.createElement("a");
+        let additionalPath = item.Path ? item.Path + "/" : "";
+
+        link.href = `/HostedFiles/${additionalPath}${fileName}`; //Path relative to Public folder
+        link.download = item.Name;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+
+    HandleClick(item: any) {
+        console.log(item);
+
+        if (!item.IsFile && item.Content) {
+
+            this.setState({
+                path: item.Name,
+                content: item.Content
+            });
+        } else if (item.IsFile) 
+            this.DownloadClass(item);
+    }
+
+    GetFolderContent() {
+        return this.state.content.map((item, index) => (
+            <FolderItem onClick={() => { this.HandleClick(item) }} key={index} {...item} />
         ));
+    }
+
+    GetHeader() {
+        let props = ["Name", "Tags", "Size", "Download"];
+        let flexSize = [4, 4, 1, 1];
+
+        let items = props.map((item, index) => (
+            <p className="header-property" key={index} style={{ flex: flexSize[index] }}>
+                {item}
+            </p>
+        ));
+
+        return (
+            <div className="main-card-header">
+                <div style={{ flex: 1, alignContent: "center", justifyContent: "center", display: "flex" }}>
+                    <img style={{ width: "50%", }} src={documentLogo} alt="Folder Icon" />
+                </div>
+                {items}
+            </div>
+        );
     }
 
     render() {
         return (
             <div className="main-card">
-                <FilePropertyHeader/>
+                {this.GetHeader()}
                 {this.GetFolderContent()}
             </div>
         );
     }
-
-
 }
 
 export default MainCard;

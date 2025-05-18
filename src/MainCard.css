@@ -13,3 +13,34 @@
     align-content: center;
 }
 
+
+.main-card-header {
+    display: flex;
+    flex-direction: row;
+    flex: 100%;
+    background-color: #171717;
+    gap: 5px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+}
+
+.header-property {
+    flex: 1;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-content: center;
+}
+
+.header-property:hover {
+    background-color: #222222;
+    cursor: pointer;
+}
+
+
+
+
