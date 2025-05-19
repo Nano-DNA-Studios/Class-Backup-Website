@@ -54,7 +54,7 @@ jobs:
 
   build-docker:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
-    needs: [setup, build-website]
+    needs: [setup, build-website, version]
     steps:
       - name: Build Docker Container
         shell: bash
