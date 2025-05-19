@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18  # or the version you use
-          cache: 'npm'
+          # cache: 'npm'
 
       - name: Clone and Checkout the Repo
         uses: actions/checkout@v4
