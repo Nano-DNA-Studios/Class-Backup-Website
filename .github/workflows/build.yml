@@ -37,7 +37,7 @@ jobs:
         shell: bash
 
       - name: Build the Website
-        run: tsc -b && vite build
+        run: npm run build
         shell: bash
 
   build-docker:
