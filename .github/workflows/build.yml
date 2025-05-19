@@ -1,0 +1,59 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  pull_request:
+  
+permissions:
+  contents: read 
+  packages: read
+
+jobs:
+  setup:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone and Checkout the Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
+
+      - name: Install NPM Packages
+        run: npm install
+        shell: bash
+
+  build-website:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: setup
+    steps:
+      - name: Build the Website
+        run: npm run build
+        shell: bash
+
+  build-docker:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: [setup, build-website]
+    steps:
+      - name: Build Docker Container
+        shell: bash
+        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:build" .
+
+  upload-website:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: [build-website]
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Compress Standalone Source
+        shell: bash
+        run: tar -czf ./ClassBackupWebsite.tar.gz -C ./dist .
+
+      - name: Check File is Made
+        shell: bash
+        run: ls -la ./ClassBackupWebsite.tar.gz

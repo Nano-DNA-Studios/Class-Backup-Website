@@ -1,0 +1,56 @@
+.main-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #111111;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    align-self: left;
+    align-content: center;
+}
+
+.navigation-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    border-radius: 20px;
+    width: 100%;
+    gap: 5px;
+}
+
+
+.main-card-header {
+    display: flex;
+    flex-direction: row;
+    flex: 100%;
+    background-color: #171717;
+    gap: 5px;
+    border-radius: 20px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 100%;
+}
+
+.header-property {
+    flex: 1;
+    display: flex;
+    text-align: left;
+    justify-content: left;
+    align-content: center;
+}
+
+/* Button Styles */
+
+.btn {
+  height: 6em;
+  padding: 1em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.btn:hover {
+  filter: drop-shadow(0 0 2em #ffffff);
+}
+
