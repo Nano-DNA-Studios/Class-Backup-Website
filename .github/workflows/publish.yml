@@ -68,13 +68,13 @@ jobs:
     steps:
       - name: Compress Standalone Source
         shell: bash
-        run: tar -czf ./ClassBackupWebsite.tar.gz -C ./dist .
+        run: tar -czf ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz -C ./dist .
 
       - name: Upload Standalone Source
         uses: actions/upload-artifact@v4
         with:
-          name: ClassBackupWebsite.tar.gz
-          path: ./ClassBackupWebsite.tar.gz
+          name: ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz
+          path: ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz
           retention-days: 1
 
       - name: Upload Website to Release
