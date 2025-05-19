@@ -1,0 +1,98 @@
+name: Publish
+
+on:
+  release:
+    types: [published]  
+  
+permissions:
+  contents: write
+  packages: write
+
+jobs:
+  setup:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          dotnet-version: "8.x.x"
+
+      - name: Clone and Checkout the Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
+
+      - name: Install NPM Packages
+        run: npm install
+        shell: bash
+
+  version:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: setup
+    outputs:
+      version: ${{ steps.get-tag-version.outputs.version }}
+
+    steps:
+      - name: Get Tag Version
+        id: get-tag-version
+        shell: bash
+        run: |
+          tagName="${{ github.event.release.tag_name }}"
+          version="${tagName#v}"  # Removes the 'v' prefix if it exists
+          echo "Extracted version $version from tag"
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+
+
+  build-website:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: setup
+    steps:
+      - name: Build the Website
+        shell: bash
+        run: npm run build
+
+      - name: Build Docker Container
+        shell: bash
+        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}" .
+
+  upload-website:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: [build-source, version]
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Compress Standalone Source
+        shell: bash
+        run: tar -czf ./ClassBackupWebsite.tar.gz -C ./dist .
+
+      - name: Upload Standalone Source
+        uses: actions/upload-artifact@v4
+        with:
+          name: ClassBackupWebsite.tar.gz
+          path: ./ClassBackupWebsite.tar.gz
+          retention-days: 1
+
+      - name: Upload Website to Release
+        working-directory: ./
+        shell: bash
+        run: |
+          echo "Uploading ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz as a Release Asset"
+          gh release upload "${{ github.event.release.tag_name }}" "ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz" --repo ${{ github.repository }}
+
+  upload-docker:
+    needs: [build-docker, version]
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    steps:
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and Push
+        shell: bash
+        run: docker push ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}

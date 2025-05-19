@@ -1,0 +1,70 @@
+name: Build
+
+on:
+  workflow_dispatch:
+  pull_request:
+  
+permissions:
+  contents: read 
+  packages: read
+
+jobs:
+  setup:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    steps:
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          dotnet-version: "8.x.x"
+
+      - name: Clone and Checkout the Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+          clean: true
+
+      - name: Install NPM Packages
+        run: npm install
+        shell: bash
+
+  build-website:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: setup
+    steps:
+      - name: Build the Website
+        shell: bash
+        run: npm run build
+
+      - name: Build Docker Container
+        shell: bash
+        run: docker build -t "${{ github.event.repository.name }}:build" .
+
+  upload-website:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: [build-source, version]
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Compress Standalone Source
+        shell: bash
+        run: tar -czf ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz -C ./dist .
+
+      - name: Check File is Made
+        shell: bash
+        run: ls -la ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz
+      # - name: Upload Standalone Source
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz
+      #     path: ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz
+      #     retention-days: 1
+
+      # - name: Upload Website to Release
+      #   working-directory: ./
+      #   shell: bash
+      #   run: |
+      #     echo "Uploading ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz as a Release Asset"
+      #     gh release upload "${{ github.event.release.tag_name }}" "ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz" --repo ${{ github.repository }}
+
+    
