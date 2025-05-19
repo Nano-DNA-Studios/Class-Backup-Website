@@ -15,7 +15,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          dotnet-version: "8.x.x"
+          node-version: 18  # or the version you use
+          cache: 'npm'
 
       - name: Clone and Checkout the Repo
         uses: actions/checkout@v4
