@@ -32,6 +32,10 @@ jobs:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
     needs: setup
     steps:
+      - name: Check Files
+        run: ls
+        shell: bash
+
       - name: Build the Website
         run: tsc -b && vite build
         shell: bash
