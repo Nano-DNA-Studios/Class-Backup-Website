@@ -33,7 +33,7 @@ jobs:
     needs: setup
     steps:
       - name: Build the Website
-        run: npm run build
+        run: tsc -b && vite build
         shell: bash
 
   build-docker:
