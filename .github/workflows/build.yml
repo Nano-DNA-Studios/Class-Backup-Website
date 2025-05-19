@@ -12,11 +12,11 @@ jobs:
   setup:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
     steps:
-      # - name: Install Node.js
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: 18  # or the version you use
-      #     cache: 'npm'
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18  # or the version you use
+          cache: 'npm'
 
       - name: Clone and Checkout the Repo
         uses: actions/checkout@v4
