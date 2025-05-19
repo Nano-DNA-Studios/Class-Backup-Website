@@ -15,8 +15,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18  # or the version you use
-          # cache: 'npm'
+          node-version: 20
 
       - name: Clone and Checkout the Repo
         uses: actions/checkout@v4
