@@ -46,7 +46,7 @@ jobs:
     steps:
       - name: Build Docker Container
         shell: bash
-        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}" .
+        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:build" .
 
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
@@ -56,8 +56,8 @@ jobs:
     steps:
       - name: Compress Standalone Source
         shell: bash
-        run: tar -czf ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz -C ./dist .
+        run: tar -czf ./ClassBackupWebsite.tar.gz -C ./dist .
 
       - name: Check File is Made
         shell: bash
-        run: ls -la ./ClassBackupWebsite-${{ needs.version.outputs.version }}.tar.gz
+        run: ls -la ./ClassBackupWebsite.tar.gz
