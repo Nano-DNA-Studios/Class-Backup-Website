@@ -398,6 +398,71 @@
     },
     {
         "IsFile": false,
+        "Name": "Extras and Electives",
+        "Tags": [],
+        "Size": "4.0 KB",
+        "Path": "",
+        "Content": [
+            {
+                "IsFile": true,
+                "Name": "Algo_trading_bootcamp.zip",
+                "Tags": [],
+                "Size": "22.52 MB",
+                "Path": "Extras and Electives",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "CO 250.zip",
+                "Tags": [],
+                "Size": "148 B",
+                "Path": "Extras and Electives",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "MATH 135.zip",
+                "Tags": [],
+                "Size": "76.34 MB",
+                "Path": "Extras and Electives",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "MATH 235.zip",
+                "Tags": [],
+                "Size": "152 B",
+                "Path": "Extras and Electives",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "MATH 239 - Fall 2024 - 12102024 - 240 AM.zip",
+                "Tags": [],
+                "Size": "696.48 MB",
+                "Path": "Extras and Electives",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "ME 362 - Fall 2024 - 1272024 - 733 PM.zip",
+                "Tags": [],
+                "Size": "3.9 GB",
+                "Path": "Extras and Electives",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "NE 471.zip",
+                "Tags": [],
+                "Size": "175.74 MB",
+                "Path": "Extras and Electives",
+                "Content": null
+            }
+        ]
+    },
+    {
+        "IsFile": false,
         "Name": "Textbooks",
         "Tags": [],
         "Size": "4.0 KB",
