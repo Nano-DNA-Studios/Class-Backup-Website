@@ -36,13 +36,17 @@ jobs:
         shell: bash
         run: npm run build
 
+  build-docker:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: [setup, build-website]
+    steps:
       - name: Build Docker Container
         shell: bash
-        run: docker build -t "${{ github.event.repository.name }}:build" .
+        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}" .
 
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
-    needs: [build-source, version]
+    needs: [build-website, version]
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:

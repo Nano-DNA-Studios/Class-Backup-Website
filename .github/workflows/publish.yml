@@ -44,8 +44,6 @@ jobs:
           echo "Extracted version $version from tag"
           echo "version=$version" >> "$GITHUB_OUTPUT"
 
-
-
   build-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
     needs: setup
@@ -54,6 +52,10 @@ jobs:
         shell: bash
         run: npm run build
 
+  build-docker:
+    runs-on: ["self-hosted", "run-${{github.run_id}}"]
+    needs: [setup, build-website]
+    steps:
       - name: Build Docker Container
         shell: bash
         run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}" .
