@@ -46,7 +46,7 @@ jobs:
 
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
-    needs: [build-website, version]
+    needs: [build-website]
     env:
       GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
