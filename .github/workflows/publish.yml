@@ -15,7 +15,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          dotnet-version: "8.x.x"
+          node-version: 20
 
       - name: Clone and Checkout the Repo
         uses: actions/checkout@v4
