@@ -9,14 +9,19 @@ function App() {
       <h2> Class Notes and Resources Hosted by MrDNAlex </h2>
       <h3>Be Mindful and Respectful of the following:</h3>
       <p>
-        1. DO NOT SPAM DOWNLOAD. Larger files takes a few seconds to start.<br />
-        2. Please do not download files excessively or all at once. Spread out Downloads over time. <br />
-        3. Download during "Off-Hours" when possible (10AM - 4PM, 12PM - 6AM). <br />
-        4. Please do not share these files with anyone outside of the class. <br />
-        5. Please do not use these files for commercial purposes. <br />
+        1. DO NOT SPAM DOWNLOAD. Larger files takes a few seconds to start (10 - 30 seconds). <br />
+        2. Please do not share these files with anyone outside of the class. Ask before sharing. <br />
+        3. Please do not use these files for commercial purposes. <br />
         Contact me for Questions, Concerns, Issues, Suggestions or Contributions : a3dufres@uwaterloo.ca <br />
       </p>
+
       <MainPage />
+
+      <h3>Website Info and Patch Notes</h3>
+      <p>
+        Website Version v0.1.3 - May 22 2025 <br />
+        May 22 2025 - Added Organized Version of NE 336. Missing Files were added and Course Organized. Removed some overprotective rules <br />
+      </p>
     </>
   )
 }
