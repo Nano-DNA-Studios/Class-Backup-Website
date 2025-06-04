@@ -51,7 +51,7 @@ jobs:
 
       - name: Build Docker Container for Raspberry Pi
         shell: bash
-        run: docker buildx build --platform linux/arm64/v8 -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:build" --push .
+        run: docker buildx build --platform linux/arm64/v8 -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:build" .
 
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
