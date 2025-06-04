@@ -60,6 +60,10 @@ jobs:
         shell: bash
         run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}" .
 
+      - name: Build Docker Container for Raspberry Pi
+        shell: bash
+        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}" --platform linux/arm/v8 .
+
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
     needs: [version, build-website]
@@ -95,6 +99,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and Push
+      - name: Push Docker Image
         shell: bash
         run: docker push ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}
+
+      - name: Push Raspberry Pi Docker Image
+        shell: bash
+        run: docker push ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}

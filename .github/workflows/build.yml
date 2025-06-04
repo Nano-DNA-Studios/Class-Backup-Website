@@ -44,6 +44,10 @@ jobs:
         shell: bash
         run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:build" .
 
+      - name: Build Docker Container for Raspberry Pi
+        shell: bash
+        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:build" --platform linux/arm/v8 .
+
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
     needs: [build-website]
