@@ -20,8 +20,8 @@ function App() {
       <h3>Website Info and Patch Notes</h3>
       <p>
         Website Version v0.1.4 - Jun 03 2025 <br />
-        May 22 2025 - Added Organized Version of NE 336. Missing Files were added and Course Organized. Removed some overprotective rules <br />
-        Jun 03 2025 - Added Raspberry Pi 4 Docker Build Support <br />
+        v0.1.3 - May 22 2025 - Added Organized Version of NE 336. Missing Files were added and Course Organized. Removed some overprotective rules <br />
+        v0.1.4 - Jun 03 2025 - Added Raspberry Pi 4 Docker Build Support <br />
       </p>
     </>
   )
