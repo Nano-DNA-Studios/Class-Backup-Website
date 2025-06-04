@@ -60,9 +60,14 @@ jobs:
         shell: bash
         run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}" .
 
+      - name: Enable buildx (only once needed globally)
+        run: |
+          docker buildx create --name builder --use || true
+          docker buildx inspect --bootstrap
+
       - name: Build Docker Container for Raspberry Pi
         shell: bash
-        run: docker build -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}" --platform linux/arm/v8 .
+        run: docker buildx build --platform linux/arm64/v8 -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}" .
 
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
