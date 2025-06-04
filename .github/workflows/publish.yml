@@ -67,7 +67,11 @@ jobs:
 
       - name: Build Docker Container for Raspberry Pi
         shell: bash
-        run: docker buildx build --platform linux/arm64/v8 -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}" .
+        run: docker buildx build --platform linux/arm64/v8 -t "ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}" --output type=docker,dest=classbackupwebsite-pi.tar .
+
+      - name: Load Docker Image for Raspberry Pi
+        shell: bash
+        run: docker load -i classbackupwebsite-pi.tar
 
   upload-website:
     runs-on: ["self-hosted", "run-${{github.run_id}}"]
@@ -107,7 +111,7 @@ jobs:
       - name: Push Docker Image
         shell: bash
         run: docker push ghcr.io/nano-dna-studios/classbackupwebsite:${{ needs.version.outputs.version }}
-
+      
       - name: Push Raspberry Pi Docker Image
         shell: bash
         run: docker push ghcr.io/nano-dna-studios/classbackupwebsite-pi:${{ needs.version.outputs.version }}
