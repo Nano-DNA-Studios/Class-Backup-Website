@@ -30,6 +30,9 @@ class MainPage extends React.Component<{}, FolderState> {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+
+        if (item.Size.includes("GB"))
+            alert("Downloading " + item.Name + ". This is a really Large File, this may take a Minute or more to Start Downloading, please be patient and wait");
     }
 
     HandleHomeBtn() {
@@ -54,7 +57,7 @@ class MainPage extends React.Component<{}, FolderState> {
 
         if (!item.IsFile && item.Content) {
             this.setState({
-                pathStack: [...this.state.pathStack, { name: item.Name, content: item.Content }],
+                pathStack: [...this.state.pathStack, { name: item.Name, content: item.Content }]
             });
         } else if (item.IsFile)
             this.DownloadClass(item);
