@@ -8,4 +8,4 @@ Website can be accessed through any Browser and through any Device if wanted thr
 This Website is currently being hosted on a dedicated Mini PC in Waterloo
 
 # Contact
-For Additional Support, Contact MrDNAlex through the email : ``Mr.DNAlex.2003@gmail.com``.
+For Additional Support, Contact MrDNAlex through the following email : ``Mr.DNAlex.2003@gmail.com``.
