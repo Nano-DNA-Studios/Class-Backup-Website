@@ -12,7 +12,7 @@ function App() {
         1. DO NOT SPAM DOWNLOAD. Larger files takes a few seconds to start (10 - 30 seconds). <br />
         2. Please do not share these files with anyone outside of the class. Ask before sharing. <br />
         3. Please do not use these files for commercial purposes. <br />
-        Contact me for Questions, Concerns, Issues, Suggestions or Contributions : a3dufres@uwaterloo.ca <br />
+        Contact me to Contribute classes to the Website or for Questions, Concerns, Issues or Suggestions: a3dufres@uwaterloo.ca or 249-591-8124 <br />
       </p>
 
       <MainPage />
@@ -24,6 +24,7 @@ function App() {
         v0.1.4 - Jun 03 2025 - Added Raspberry Pi 4 Docker Build Support <br />
         v0.1.5 - Jun 03 2025 - Made Table Text Larger, Added Alert Popup for Files Larger than 1 GB. It will warn that files may take more than 1 Min to start Downloading, Moving Webiste to Raspberry Pi for the Week <br />
         v0.1.6 - Sep 07 2025 - Removed the outdated Raspberry Pi 4 Message, Moved website hosting to Waterloo apartment on a dedicated Mini PC<br />
+        v0.1.7 - Oct 20 2025 - Added 1A Folder with NE 121 Assessments with Answers, added What's App number for Class Contributions<br />
       </p>
     </>
   )
