@@ -1,6 +1,23 @@
 [
     {
         "IsFile": false,
+        "Name": "1A",
+        "Tags": [],
+        "Size": "0 B",
+        "Path": "",
+        "Content": [
+            {
+                "IsFile": true,
+                "Name": "NE 121 - Chemical Principals.zip",
+                "Tags": [],
+                "Size": "1.89 MB",
+                "Path": "1A",
+                "Content": null
+            }
+        ]
+    },
+    {
+        "IsFile": false,
         "Name": "1B",
         "Tags": [],
         "Size": "4.0 KB",
