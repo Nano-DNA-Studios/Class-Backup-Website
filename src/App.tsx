@@ -25,6 +25,7 @@ function App() {
         v0.1.5 - Jun 03 2025 - Made Table Text Larger, Added Alert Popup for Files Larger than 1 GB. It will warn that files may take more than 1 Min to start Downloading, Moving Webiste to Raspberry Pi for the Week <br />
         v0.1.6 - Sep 07 2025 - Removed the outdated Raspberry Pi 4 Message, Moved website hosting to Waterloo apartment on a dedicated Mini PC<br />
         v0.1.7 - Oct 20 2025 - Added 1A Folder with NE 121 Assessments with Answers, added What's App number for Class Contributions<br />
+        v0.1.8 - Nov 11 2025 - Added Software Folder with a few Windows Softwares that are used in Class<br />
       </p>
     </>
   )
