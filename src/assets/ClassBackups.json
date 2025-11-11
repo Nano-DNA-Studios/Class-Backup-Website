@@ -3,7 +3,7 @@
         "IsFile": false,
         "Name": "1A",
         "Tags": [],
-        "Size": "0 B",
+        "Size": "4.0 KB",
         "Path": "",
         "Content": [
             {
@@ -482,6 +482,63 @@
                 "Tags": [],
                 "Size": "175.74 MB",
                 "Path": "Extras and Electives",
+                "Content": null
+            }
+        ]
+    },
+    {
+        "IsFile": false,
+        "Name": "Software",
+        "Tags": [],
+        "Size": "4.0 KB",
+        "Path": "",
+        "Content": [
+            {
+                "IsFile": true,
+                "Name": "Ansys-Academic-Student-2025R2-Win64.zip",
+                "Tags": [],
+                "Size": "18.26 GB",
+                "Path": "Software",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "COMSOL 6.3 Crack Installation Guide.pdf",
+                "Tags": [],
+                "Size": "1.16 MB",
+                "Path": "Software",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "Comsol 6.3.0.290.zip",
+                "Tags": [],
+                "Size": "9.18 GB",
+                "Path": "Software",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "layout-editor-win-64bit-installer.msi",
+                "Tags": [],
+                "Size": "146.45 MB",
+                "Path": "Software",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "matlab_R2023b_win64.exe",
+                "Tags": [],
+                "Size": "231.92 MB",
+                "Path": "Software",
+                "Content": null
+            },
+            {
+                "IsFile": true,
+                "Name": "OneDriveSetup.exe",
+                "Tags": [],
+                "Size": "63.15 MB",
+                "Path": "Software",
                 "Content": null
             }
         ]
