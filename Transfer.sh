@@ -1,0 +1,2 @@
+#! /bin/bash
+wsl bash -ic "rsync -avP --ignore-existing -e 'ssh -p 55516 -i ~/.ssh/id_ed25519 -o IdentitiesOnly=yes' '/mnt/e/Backups/Important Backup/School/University Class Backups'/* mrdna@135.23.125.170:~/Backups/ClassBackups/ClassBackups"
