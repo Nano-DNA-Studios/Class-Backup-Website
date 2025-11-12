@@ -1,5 +1,5 @@
 # Nano Technology Engineering Class Backup Website
-A Website for Hosting and Sharing the LEARN Class Content Backups for the Nano Technology Engineering Cohort of 2021-2026
+A Website for Hosting and Sharing the LEARN Class Content Backups and Class Software for the Nano Technology Engineering Cohort of 2021-2026
 
 As of June of 2025, the Univeristy of Waterloo is reducing every Students One Drive Cloud Storage from 5 TB to 25 GB. This reduction makes it difficult to share the Class Backup files in an efficient manner. In this current day, the Class Backups are around 45 GB. To get around this, I have decided to Host and Share the files on a Server and serve them through a Website
 
